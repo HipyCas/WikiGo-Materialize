@@ -1,0 +1,18 @@
+<html>
+  <head>
+    {{ template "cdn" }}
+    {{ template "meta"}}
+    <title>{{ .WikiPage.Title }}</title>
+  </head>
+  <body>
+    <div class="container">
+      <br>{{ template "alerts" . }}
+      <h1>{{ .WikiPage.Title }}</h1>
+      <a href="/edit/{{.WikiPage.Title}}" type="button" class="btn btn-outline-primary btn-sm">Edit</a>
+      <a href="/download/{{.WikiPage.Title}}" type="button" class="btn btn-outline-secondary btn-sm">Download</a>
+      <hr>
+      <!--<p>[<a href="/edit/{{/*.Title*/}}">edit</a>]</p>-->
+      <div>{{ printf "%s" .WikiPage.Body }}</div>
+    </div>
+  </body>
+</html>

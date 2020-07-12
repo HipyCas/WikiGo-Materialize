@@ -80,13 +80,13 @@ func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
 	err := p.save()
 	if err != nil {
 		addAlertCreate(5, "Something went wrong and the page wasn't saved")
-		//http.Error(w, err.Error(), http.StatusInternalServerError)
-		//return
+		log.Printf("Page %v couldn't be saved: %v", p, err)
+		http.Redirect(w, r, "/view/"+title, http.StatusFound)
 	} else {
 		addAlertCreate(3, "Page succesfully saved")
+		http.Redirect(w, r, "/view/"+title, http.StatusFound)
 	}
-	//log.Println("Page " + p.title + " succesfully")
-	http.Redirect(w, r, "/view/"+title, http.StatusFound)
+	return
 }
 
 func downloadHandler(w http.ResponseWriter, r *http.Request, title string) {
@@ -238,7 +238,7 @@ type Page struct {
 }
 
 func (p *Page) save() error {
-	filename := p.Title + ".txt"
+	filename := "page/" + p.Title + ".txt"
 	return ioutil.WriteFile(filename, p.Body, 0600)
 }
 

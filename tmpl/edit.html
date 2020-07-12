@@ -3,6 +3,7 @@
     {{ template "cdn"}}
     {{ template "meta"}}
     <title>{{ .WikiPage.Title }}</title>
+    <script>M.AutoInit()</script>
   </head>
   <body>
     <div class="container">
@@ -10,8 +11,12 @@
       <h1>Editing {{ .WikiPage.Title }}</h1>
       <hr>
       <form action="/save/{{.WikiPage.Title}}" method="POST">
-        <div class="form-group"><textarea class="form-control" name="body" rows="20" cols="80">{{ printf "%s" .WikiPage.Body }}</textarea></div>
-        <div class="form-group"><input class="form-control btn btn-primary" type="submit" value="Save"></div>
+        <label for="mainTextArea">Page Content</label>
+        <div class="col s12"><textarea id="mainTextArea" class="materialize-textarea" name="body" rows="20" cols="80">{{ printf "%s" .WikiPage.Body }}</textarea></div>
+        <div class="row">
+          <button class="btn waves-effect waves-light" type="sunmit" name="submit">Save<i class="material-icons right">check</i></button>
+          <a href="/view/{{.WikiPage.Title}}" class="btn waves-effect waves-light">Cancel<i class="material-icons right">clear</i></a>
+        </div>
       </form>
     </div>
   </body>

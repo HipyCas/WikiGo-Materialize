@@ -16,20 +16,26 @@
       <h1>Register</h1>
       <hr>
       <form action="" class="form-group" method="POST">
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <input type="text" class="form-control" name="username" placeholder="Username" required>
+        <div class="row">
+          <div class="input-field col s12 m6">
+            <input type="text" class="validate" id="username">
+            <label for="username">Username</label>
           </div>
-          <div class="form-group col-md-6">
-            <input type="email" class="form-control" name="email" placeholder="Email" required>
+          <div class="input-field col s12 m6">
+            <input type="email" class="validate" id="email">
+            <label for="email">Email</label>
           </div>
         </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <input type="password" class="form-control" name="password" placeholder="Password" required>
+        <div class="row">
+          <div class="input-field col s12 m6">
+            <i class="material-icons prefix">lock</i>
+            <input type="password" class="validate" id="password">
+            <label for="password">Password</label>
           </div>
-          <div class="form-group col-md-6">
-            <input type="password" class="form-control" name="repeatPassword" placeholder="Reapeat Password" required>
+          <div class="input-field col s12 m6">
+            <i class="material-icons prefix">lock</i>
+            <input type="password" class="validate" id="repeatPassword">
+            <label for="repeatPassword">Repeat Password</label>
           </div>
         </div>
         <!--
@@ -50,8 +56,11 @@
           </div>
         </div>
         -->
-        <input type="submit" class="form-control btn btn-primary" value="Sign up">
-        <a href="../login/">Already have an account? Login</a>
+        <button class="btn waves-effect waves-light" type="sybmit" name="submit">
+          Sign up
+          <i class="material-icons right">send</i>
+        </button>
+        <a class="waves-effect waves-teal btn-flat" href="/login/">Already have an account? Login</a>
         <br>
       </form>
     </div>
